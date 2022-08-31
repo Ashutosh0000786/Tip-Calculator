@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+
+
+      <style>
+
+        body{
+            background-image: url("background image2.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            /* background: linear-gradient(100deg, #95b3c7, #9b59b6); */
+        }
+
+        h1{
+           color:  #7ee7e1;
+           display: flex;
+           justify-content: center;  
+           /* height: 0.5rem;
+           width: 290px;
+           border: 2px solid green; */
+           padding: 30px;
+           margin: 20px;          
+        }
+
+        .box1{
+            /*padding-left: 4rem;*/
+            background-color:transparent;
+            color: #0c1412;
+            width: 24rem;
+            height: 28rem;
+            margin-left: 35rem;
+            border-radius: 20px;
+            /* box-shadow: 0 0.5rem 6rem; */
+            box-shadow: 0 0 7px 7px rgb(199, 242, 213);
+
+          }
+
+          
+        .box{
+          padding: 4rem;
+          display: flex;
+          flex-direction: column;
+        }          
+
+        /* .submit{
+            background-color:  rgb(74, 167, 142);
+            border:  rgb(74, 167, 142) solid 2px;
+            border-radius: 5px;
+            height: 30px;
+            width: 80px;
+        } */
+
+        label{
+          margin-left: -2rem;
+          font-size: larger;
+          color: cornsilk;
+        }
+
+        input{
+          font-weight: bold;
+          font-size: large;
+          border: solid 1px gray;
+          border-radius: 5px;
+          height: 2rem;
+          width: 17rem;
+          margin-left: -2rem;
+          color: rgb(224, 240, 238);
+          background-color: transparent;
+        }
+
+        #calculator{
+          height: 2.5rem;
+          width: 7rem;
+          color: rgb(198, 225, 207);
+          margin-left: -2rem;
+          background-color:transparent;
+          font-weight: 700;
+          border-color: gray;
+          border-radius: 5px;
+
+        }
+
+        #resetButton{
+          height: 2.5rem;
+          width: 7rem;
+          color: #fff;
+          margin-left: 6rem;
+          margin-top: -2.5rem;
+          background-color:transparent;
+          font-weight: 700;
+          border-color: gray;
+          border-radius: 5px;
+        }
+
+      </style>
+
+</head>
+<body>
+     
+  <div>
+    <!-- <h1 style="padding: 10px; border: 2px solid red;">Tips For our Service</h1> -->
+    <h1 >Tips For our Service</h1>
+    <div class="box1">
+    <div class="box">
+        <label>Bill Amount :-</label>
+        <input type="text" id="billamount"><br>
+        <label>Tip Percentage</label>
+        <input type="text"  id="tipperc"><br>
+        <label>Tip Amount</label>
+        <input type="text" id="tiptotal"><br>
+        <label>Total Billed</label>
+        <input type="text" id="totalbilled"><br>
+        <button onclick="tipcalcy()" id="calculator">Calculator</button>
+        <button onclick="reset()" id="resetButton">Reset</button>
+    </div>
+  </div>
+  </div>
+    
+  <script>
+
+    const tipcalcy=()=>{
+      let amount = document.getElementById('billamount').value;   //value of billamount
+      let perc = document.getElementById('tipperc').value;        //value of Tip percentage
+      let tip = amount*(perc / 100);
+      //alert(tip);
+      let total = tip + Number(amount);
+      //alert(total);
+      document.getElementById('tiptotal').value = tip.toFixed(2);
+      document.getElementById('totalbilled').value = total.toFixed(0);
+    }
+
+    const reset=()=>{
+      document.getElementById('tiptotal').value = 0;
+      document.getElementById('totalbilled').value = 0;
+     // document.getElementById('billamount').value = 0;
+      document.getElementById('tipperc').value = 0;
+    }
+
+  </script>
+  
+</body>
+</html>
